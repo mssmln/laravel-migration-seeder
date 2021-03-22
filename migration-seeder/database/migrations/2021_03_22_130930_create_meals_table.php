@@ -15,10 +15,10 @@ class CreateMealsTable extends Migration
     {
         Schema::create('meals', function (Blueprint $table) {
             $table->id();
-            $table->string('name',20);
-            $table->string('temperature',10);
+            $table->string('name');
+            $table->string('temperature');
             $table->integer('calorie_count');
-            //$table->date('cooked_on');
+            $table->date('cooked_on');
             $table->timestamps();
         });
     }

@@ -33,12 +33,14 @@ class MealSeeder extends Seeder
 
     public function run(Faker $faker) // metodo con fakers
     {
+        $meals = config('meals');
+
         for($i= 0; $i < 10; $i++){
             $newMeal = new Meal(); 
             $newMeal->name = $faker->name(20);
-            $newMeal->temperature = $faker->word();
+            $newMeal->temperature = $faker->word(10);
             $newMeal->calorie_count = $faker->numberBetween(-100,100);
-            //$newMeal->cooked_on = Carbon::createFromFormat('d/m/Y', $meal['cooked_on']);
+            $newMeal->cooked_on = Carbon::createFromFormat('d-m-Y', $meals[0]['cooked_on']);
 
             $newMeal->save();
 
